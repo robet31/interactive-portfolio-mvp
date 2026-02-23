@@ -1,0 +1,44 @@
+# Vercel Ignore
+# =============================================================================
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+
+# Local config
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files (use Vercel Dashboard instead)
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+SECURITY.md
+ATTRIBUTIONS.md
+guidelines/
+
+# Server (for local dev only, not deployed)
+server/
+
+# Temporary
+*.tmp
+*.temp
+.cache
+
+# Media (large files)
+Logo_Ravnx.png
