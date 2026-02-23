@@ -1,0 +1,585 @@
+/* ═══════════════════════════════════════════ */
+/* Article content styles (published view)    */
+/* ═══════════════════════════════════════════ */
+.article-content {
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  color: var(--foreground);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.article-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  font-family: var(--font-sans);
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  color: var(--foreground);
+  clear: both;
+  scroll-margin-top: 6rem;
+}
+
+.article-content h1 { font-size: 2em; }
+.article-content h2 { font-size: 1.5em; padding-bottom: 0.3em; border-bottom: 1px solid var(--border); }
+.article-content h3 { font-size: 1.25em; }
+.article-content h4 { font-size: 1.1em; }
+.article-content h5 { font-size: 1em; opacity: 0.9; }
+.article-content h6 { font-size: 0.95em; opacity: 0.85; }
+
+.article-content p {
+  margin-bottom: 1.25em;
+  color: var(--foreground);
+  opacity: 0.9;
+}
+
+.article-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.article-content a:hover { opacity: 0.8; }
+.article-content strong { font-weight: 600; color: var(--foreground); }
+.article-content em { font-style: italic; }
+
+.article-content ul,
+.article-content ol { margin-bottom: 1.25em; padding-left: 1.5em; }
+.article-content ul { list-style-type: disc; }
+.article-content ol { list-style-type: decimal; }
+.article-content li { margin-bottom: 0.5em; padding-left: 0.25em; }
+.article-content li strong { color: var(--foreground); }
+
+.article-content blockquote {
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  border-left: 3px solid var(--primary);
+  background: var(--muted);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  clear: both;
+}
+.article-content blockquote p { margin-bottom: 0; }
+
+/* Code blocks - full width */
+.article-content pre {
+  margin: 1.5em 0;
+  padding: 0;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  line-height: 1.7;
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+}
+
+.article-content pre code {
+  display: block;
+  padding: 1.25em 1.5em;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.article-content :not(pre) > code {
+  padding: 0.2em 0.4em;
+  background: var(--muted);
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  color: var(--primary);
+}
+
+.article-content hr {
+  margin: 2em 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  clear: both;
+}
+
+/* ─── Article Image Alignment System ─── */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+/* Default: center */
+.article-content img:not([data-layout]) {
+  display: block;
+  margin: 1.5em auto;
+}
+
+.article-content img[data-layout="center"] {
+  display: block;
+  margin: 1.5em auto;
+}
+
+.article-content img[data-layout="wide"] {
+  display: block;
+  margin: 1.5em auto;
+  width: 100%;
+}
+
+/* Float left: text wraps to the right */
+.article-content img[data-layout="inline-left"] {
+  float: left;
+  margin: 0.5em 1.5em 1em 0;
+  max-width: 50%;
+}
+
+/* Float right: text wraps to the left */
+.article-content img[data-layout="inline-right"] {
+  float: right;
+  margin: 0.5em 0 1em 1.5em;
+  max-width: 50%;
+}
+
+/* Width from data-width - apply to floated images too */
+.article-content img[data-layout="inline-left"][data-width="25"],
+.article-content img[data-layout="inline-right"][data-width="25"] { max-width: 25%; width: 25%; }
+.article-content img[data-layout="inline-left"][data-width="50"],
+.article-content img[data-layout="inline-right"][data-width="50"] { max-width: 50%; width: 50%; }
+.article-content img[data-layout="inline-left"][data-width="75"],
+.article-content img[data-layout="inline-right"][data-width="75"] { max-width: 75%; width: 75%; }
+.article-content img[data-layout="inline-left"][data-width="100"],
+.article-content img[data-layout="inline-right"][data-width="100"] { max-width: 100%; width: 100%; }
+
+/* Non-floated width */
+.article-content img[data-width="25"] { width: 25%; }
+.article-content img[data-width="50"] { width: 50%; }
+.article-content img[data-width="75"] { width: 75%; }
+.article-content img[data-width="100"] { width: 100%; }
+
+/* Hover effect only for non-floated */
+.article-content img[data-layout="center"]:hover,
+.article-content img:not([data-layout]):hover { transform: scale(1.005); }
+
+.article-content figure { margin: 1.5em 0; text-align: center; clear: both; }
+.article-content figcaption {
+  margin-top: 0.5em;
+  color: var(--muted-foreground);
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════ */
+/* TipTap Editor styles                       */
+/* ═══════════════════════════════════════════ */
+.tiptap {
+  font-family: var(--font-serif);
+  line-height: 1.8;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.tiptap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tiptap:focus { outline: none; }
+
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 { font-family: var(--font-sans); clear: both; }
+.tiptap h1 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.5em; }
+.tiptap h2 { font-size: 1.5em; margin-top: 1.25em; margin-bottom: 0.5em; }
+.tiptap h3 { font-size: 1.25em; margin-top: 1em; margin-bottom: 0.5em; }
+.tiptap h4 { font-size: 1.1em; margin-top: 1em; margin-bottom: 0.4em; }
+.tiptap h5 { font-size: 1em; margin-top: 0.8em; margin-bottom: 0.4em; opacity: 0.9; }
+.tiptap h6 { font-size: 0.95em; margin-top: 0.8em; margin-bottom: 0.4em; opacity: 0.85; }
+
+.tiptap p { margin-bottom: 0.75em; }
+
+.tiptap ul { list-style-type: disc; padding-left: 1.5em; }
+.tiptap ol { list-style-type: decimal; padding-left: 1.5em; }
+.tiptap li { margin-bottom: 0.25em; }
+
+.tiptap blockquote {
+  padding: 0.75em 1em;
+  border-left: 3px solid var(--primary);
+  background: var(--muted);
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1em 0;
+  font-style: italic;
+  clear: both;
+}
+
+.tiptap :not(pre) > code {
+  padding: 0.15em 0.35em;
+  background: var(--muted);
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  color: var(--primary);
+}
+
+.tiptap hr {
+  margin: 1.5em 0;
+  border: none;
+  border-top: 1px solid var(--border);
+  clear: both;
+}
+
+/* ─── Editor Image NodeView Styles ─── */
+.editor-img-wrapper {
+  margin: 1em 0;
+  max-width: 100%;
+  transition: all 0.2s ease;
+}
+
+.editor-img-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.editor-img-wide {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100% !important;
+}
+
+.editor-img-float-left {
+  float: left;
+  margin: 0.5em 1.5em 1em 0;
+  max-width: 50%;
+}
+
+.editor-img-float-right {
+  float: right;
+  margin: 0.5em 0 1em 1.5em;
+  max-width: 50%;
+}
+
+.editor-img-element {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  display: block;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.editor-img-selected .editor-img-element {
+  box-shadow: 0 0 0 3px var(--primary);
+  border-radius: 0.75rem;
+}
+
+/* Hide the default tiptap img styles for NodeView images */
+.tiptap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1em auto;
+  display: block;
+}
+
+.tiptap img.ProseMirror-selectednode {
+  outline: none;
+}
+
+/* Placeholder styles */
+.tiptap .is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  height: 0;
+  opacity: 0.4;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  height: 0;
+  opacity: 0.5;
+}
+
+/* Fallback tiptap pre (non-NodeView) */
+.tiptap pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1em 1.25em;
+  border-radius: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  margin: 1em 0;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+}
+
+/* ══════════════════════════��════════════════ */
+/* Notion-style Code Block (NodeView)         */
+/* ═══════════════════════════════════════════ */
+.notion-code-block-wrapper {
+  margin: 1em 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  clear: both;
+}
+
+.notion-code-block {
+  background: #1e1e2e;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
+}
+
+.notion-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.notion-code-lang-select {
+  appearance: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  color: #a6adc8;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+  max-width: 140px;
+}
+
+.notion-code-lang-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.notion-code-lang-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.notion-code-lang-select option {
+  background: #1e1e2e;
+  color: #cdd6f4;
+}
+
+.notion-code-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.375rem;
+  color: #a6adc8;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.notion-code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #cdd6f4;
+}
+
+.notion-code-pre {
+  margin: 0 !important;
+  padding: 1rem 1.25rem !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  line-height: 1.7;
+  color: #cdd6f4;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.notion-code-pre code {
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent !important;
+  padding: 0 !important;
+  color: inherit;
+  white-space: pre;
+}
+
+/* ═══════════════════════════════════════════ */
+/* Syntax highlighting - Catppuccin Mocha     */
+/* ═══════════════════════════════════════════ */
+.notion-code-pre .hljs-comment,
+.notion-code-pre .hljs-quote { color: #6c7086; font-style: italic; }
+
+.notion-code-pre .hljs-keyword,
+.notion-code-pre .hljs-selector-tag,
+.notion-code-pre .hljs-addition { color: #cba6f7; }
+
+.notion-code-pre .hljs-number,
+.notion-code-pre .hljs-string,
+.notion-code-pre .hljs-meta .hljs-meta-string,
+.notion-code-pre .hljs-literal,
+.notion-code-pre .hljs-doctag,
+.notion-code-pre .hljs-regexp { color: #a6e3a1; }
+
+.notion-code-pre .hljs-title,
+.notion-code-pre .hljs-section,
+.notion-code-pre .hljs-name,
+.notion-code-pre .hljs-selector-id,
+.notion-code-pre .hljs-selector-class { color: #89b4fa; }
+
+.notion-code-pre .hljs-attribute,
+.notion-code-pre .hljs-attr,
+.notion-code-pre .hljs-variable,
+.notion-code-pre .hljs-template-variable,
+.notion-code-pre .hljs-class .hljs-title,
+.notion-code-pre .hljs-type { color: #f9e2af; }
+
+.notion-code-pre .hljs-symbol,
+.notion-code-pre .hljs-bullet,
+.notion-code-pre .hljs-subst,
+.notion-code-pre .hljs-meta,
+.notion-code-pre .hljs-meta .hljs-keyword,
+.notion-code-pre .hljs-selector-attr,
+.notion-code-pre .hljs-selector-pseudo,
+.notion-code-pre .hljs-link { color: #fab387; }
+
+.notion-code-pre .hljs-built_in,
+.notion-code-pre .hljs-deletion { color: #f38ba8; }
+
+.notion-code-pre .hljs-formula { background: rgba(255, 255, 255, 0.05); }
+.notion-code-pre .hljs-emphasis { font-style: italic; }
+.notion-code-pre .hljs-strong { font-weight: bold; }
+
+/* Article view hljs */
+.article-content .hljs-comment,
+.article-content .hljs-quote { color: #6c7086; font-style: italic; }
+.article-content .hljs-keyword,
+.article-content .hljs-selector-tag,
+.article-content .hljs-addition { color: #cba6f7; }
+.article-content .hljs-number,
+.article-content .hljs-string,
+.article-content .hljs-meta .hljs-meta-string,
+.article-content .hljs-literal,
+.article-content .hljs-doctag,
+.article-content .hljs-regexp { color: #a6e3a1; }
+.article-content .hljs-title,
+.article-content .hljs-section,
+.article-content .hljs-name,
+.article-content .hljs-selector-id,
+.article-content .hljs-selector-class { color: #89b4fa; }
+.article-content .hljs-attribute,
+.article-content .hljs-attr,
+.article-content .hljs-variable,
+.article-content .hljs-template-variable,
+.article-content .hljs-class .hljs-title,
+.article-content .hljs-type { color: #f9e2af; }
+.article-content .hljs-symbol,
+.article-content .hljs-bullet,
+.article-content .hljs-subst,
+.article-content .hljs-meta,
+.article-content .hljs-meta .hljs-keyword,
+.article-content .hljs-selector-attr,
+.article-content .hljs-selector-pseudo,
+.article-content .hljs-link { color: #fab387; }
+.article-content .hljs-built_in,
+.article-content .hljs-deletion { color: #f38ba8; }
+.article-content .hljs-emphasis { font-style: italic; }
+.article-content .hljs-strong { font-weight: bold; }
+
+/* ═══════════════════════════════════════════ */
+/* Custom scrollbar for code blocks           */
+/* ═══════════════════════════════════════════ */
+.notion-code-pre::-webkit-scrollbar,
+.article-content pre code::-webkit-scrollbar {
+  height: 6px;
+}
+
+.notion-code-pre::-webkit-scrollbar-track,
+.article-content pre code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notion-code-pre::-webkit-scrollbar-thumb,
+.article-content pre code::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.notion-code-pre::-webkit-scrollbar-thumb:hover,
+.article-content pre code::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ═══════════════════════════════════════════ */
+/* ProseMirror wrapper - prevent overflow      */
+/* ═══════════════════════════════════════════ */
+.ProseMirror {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Ensure node views take full width */
+.ProseMirror .node-codeBlock,
+.ProseMirror [data-node-view-wrapper] {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Image node views should respect their layout */
+.ProseMirror [data-node-view-wrapper][data-layout="center"],
+.ProseMirror [data-node-view-wrapper][data-layout="wide"] {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════ */
+/* Responsive: on small screens, no float     */
+/* ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .editor-img-float-left,
+  .editor-img-float-right {
+    float: none;
+    max-width: 100%;
+    margin: 1em auto;
+    display: block;
+  }
+
+  .article-content img[data-layout="inline-left"],
+  .article-content img[data-layout="inline-right"] {
+    float: none;
+    display: block;
+    margin: 1em auto;
+    width: auto;
+    max-width: 100%;
+  }
+}
