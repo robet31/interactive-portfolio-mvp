@@ -48,19 +48,18 @@ export function Navbar() {
   return (
     <nav
       ref={menuRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || isOpen
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen
+        ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-sm'
+        : 'bg-transparent'
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo + Nama */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img 
-              src={logo} 
-              alt="Ravnx" 
+            <img
+              src={logo}
+              alt="Ravnx"
               className="h-8 w-8 object-contain"
             />
             <span className="text-foreground tracking-tight transition-transform group-hover:scale-105" style={{ fontSize: '1.25rem', fontWeight: 700 }}>
@@ -74,11 +73,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-4 py-2 rounded-lg text-sm transition-colors ${
-                  isActive(link.href)
-                    ? 'text-primary bg-primary/5'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm transition-colors ${isActive(link.href)
+                  ? 'text-primary bg-primary/5'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -142,16 +140,15 @@ export function Navbar() {
                   <Link
                     to={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center px-4 py-3 rounded-xl transition-colors ${
-                      isActive(link.href)
-                        ? 'text-primary bg-primary/5'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    className={`flex items-center px-4 py-3 rounded-xl transition-colors ${isActive(link.href)
+                      ? 'text-primary bg-primary/5'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      }`}
                   >
                     <span className="text-sm">{link.label}</span>
                   </Link>
                 </motion.div>
-            ))}
+              ))}
             </div>
           </motion.div>
         )}
