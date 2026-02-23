@@ -35,6 +35,9 @@ guidelines/
 # Server (for local dev only, not deployed)
 server/
 
+# API routes (requires Next.js conversion)
+api/
+
 # Temporary
 *.tmp
 *.temp
