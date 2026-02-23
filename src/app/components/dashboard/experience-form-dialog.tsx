@@ -67,7 +67,7 @@ export function ExperienceFormDialog({
       setType(experience.type || 'work');
       setTags(experience.tags || []);
       setImage(experience.image || '');
-      
+
       // Mengambil data sortOrder, pakai any sementara biar tidak error TS
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setSortOrder((experience as any).sortOrder?.toString() || '0');
@@ -141,7 +141,7 @@ export function ExperienceFormDialog({
         </div>
 
         <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-6">
-          
+
           {/* Section 1: Basic Info */}
           <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-border/50">
             <div className="space-y-2">
@@ -227,7 +227,7 @@ export function ExperienceFormDialog({
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="exp-desc">Description</Label>
-              
+
               {/* === FIX UTAMA ADA DI SINI === */}
               <textarea
                 id="exp-desc"
@@ -239,7 +239,7 @@ export function ExperienceFormDialog({
                 className="block min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary disabled:cursor-not-allowed disabled:opacity-50 resize-y relative z-10"
               />
               {/* ============================= */}
-              
+
             </div>
 
             <ImageUploadField
